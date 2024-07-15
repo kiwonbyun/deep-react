@@ -1,8 +1,23 @@
-const rootRealDom = document.getElementById("app");
-const rootVirtualDom = ReactDOM.createRoot(rootRealDom);
+const rootNode = document.getElementById("app");
+const root = ReactDOM.createRoot(rootNode);
 
-rootVirtualDom.render(React.createElement(App));
+root.render(React.createElement(App));
 
 function App() {
-  return React.createElement("button", null, "Click me");
+  return React.createElement(
+    "section",
+    null,
+    React.createElement("h1", null, "Counters"),
+    React.createElement("section", null, React.createElement(Counter, null))
+  );
+}
+
+function Counter() {
+  return React.createElement(
+    "article",
+    null,
+    React.createElement("h2", null, "Counter "),
+    React.createElement("p", null, "You clicked 1 times"),
+    React.createElement("button", { className: "bububu" }, "Click me")
+  );
 }
